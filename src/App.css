@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.carContainer {
+  min-height: 200px;
+  width: 90vw;
+  margin-left: 60px;
+  overflow: auto;
+  /* flex-wrap: wrap; */
+  display: flex;
+}
+
+.car {
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.carImg {
+  height: 180px;
+  width: 300px;
+  margin: 20px;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+  margin-left: 9vw;
+}
+
+.title {
+  margin-left: 600px;
+}
+
+.searchBar {
+  padding: 7px;
+  width: 80vw;
+  font-size: large;
+  outline: none;
+  margin-top: 5px;
+}
+
+.searchBtn {
+  padding: 10px 15px;
+  width: 200px;
+  font-size: large;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 13px;
+}
+.suggestion{
+  height: 52px;
+  width: 81.5vw;
+  font-size: large;
+  outline: none;
+  background-color: aliceblue;
+  /* border: 1px solid; */
+  cursor: pointer;
+}
+.suggestionsContainer{
+  min-height: 10px;
+  max-height: 162px;
+  /* height: 162px; */
+  overflow: auto;
+  /* background-color: blue; */
+}
+.labelCarSearch{
+font-size: 20px;
+font-weight:500;
+margin-left:105px ;
+}
