@@ -58,12 +58,14 @@
 }
 .suggestion{
   height: 52px;
-  width: 81.5vw;
+  width: 81.3vw;
   font-size: large;
   outline: none;
   background-color: aliceblue;
-  /* border: 1px solid; */
   cursor: pointer;
+}
+.suggestion:hover{
+  background-color: rgb(190, 215, 236);
 }
 .suggestionsContainer{
   min-height: 10px;
