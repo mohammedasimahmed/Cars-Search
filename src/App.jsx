@@ -8,51 +8,34 @@ export default function App() {
   const [state, setState] = useState("");
   const [filterArr, setFilterArr] = useState([]);
   const [filterSugg, setFilterSugg] = useState([]);
-  const [attr, setAttr] = useState("");
+  
+  let attr = ""
 
   useEffect(() => {
     func();
     filter();
     suggest();
+    console.log(attr)
     console.log(state);
   }, [state]);
-  useEffect(() => {
-    if (state === "" || state.trim() === "") {
-      setFilterArr([]);
-      return;
-    }
-    setFilterArr(
-      carsArr.filter((item) =>
-        item[attr]?.toLowerCase()?.startsWith(state.toLowerCase().trim())
-      )
-    );
-  }, [filterSugg]);
-  useEffect(() => {
-    if (state === "" || state.trim() === "") {
-      setFilterArr([]);
-      return;
-    }
-    setFilterArr(
-      carsArr.filter((item) =>
-        item[attr]?.toLowerCase()?.startsWith(state.toLowerCase().trim())
-      )
-    );
-  }, [attr]);
-
 
   function handleSubmit(e) {
     e.preventDefault();
   }
   function func() {
-    if (
-      "deluxe car".startsWith(state.toLowerCase().trim()) ||
+    if (state === "" || state.trim() === "") {
+      setFilterArr([]);
+      return;
+    }
+    else if (
+      "luxury car".startsWith(state.toLowerCase().trim()) ||
       "sports car".startsWith(state.toLowerCase().trim()) ||
       "passenger car".startsWith(state.toLowerCase().trim())
     ) {
-      setAttr("type");
+      attr="type"
     }
     else {
-      setAttr("name");
+      attr="name"
     }
   }
   function filter() {
@@ -62,7 +45,7 @@ export default function App() {
     }
     setFilterArr(
       carsArr.filter((item) =>
-        item[attr]?.toLowerCase()?.startsWith(state.toLowerCase().trim())
+        item[attr].toLowerCase().startsWith(state.toLowerCase().trim())
       )
     );
   }
@@ -75,7 +58,7 @@ export default function App() {
 
     setFilterSugg(
       carsArr.filter((item) =>
-        item[attr]?.toLowerCase()?.startsWith(state.toLowerCase().trim())
+        item[attr].toLowerCase().startsWith(state.toLowerCase().trim())
       )
     );
   }
