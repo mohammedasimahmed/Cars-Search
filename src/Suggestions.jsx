@@ -1,13 +1,14 @@
-export default function Suggestions({ suggest , filterSugg ,suggClick }) {
+export default function Suggestions({  filterSugg ,suggClick ,rmsug  }) {
     return (
         <div className="suggestionsContainer">
             {
-                filterSugg.map((item)=>{
+                rmsug &&(filterSugg.map((item)=>{
                     const id = Math.floor(Math.random() * 100000000 + 1);
                     return (
-                        <div className="suggestion" key={id} onClick={()=>suggClick(item.name)} >{item.name}</div>
+                        <div className="suggestion" key={id} onClick={()=>suggClick(item.title)} >{item.title}</div>
                     )
                 })
+                )
             }
         </div>
     )
