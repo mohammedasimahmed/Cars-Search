@@ -9,7 +9,8 @@ export default function App() {
   const [filterArr, setFilterArr] = useState([]);
   const [filterSugg, setFilterSugg] = useState([]);
   const [val, setVal] = useState(false);
-  
+  const [rmsug,setrmSug] = useState(true);
+  const [storeState, setstoreState] = useState("");
   // let attr = ""
 
   useEffect(() => {
@@ -17,7 +18,9 @@ export default function App() {
     filter();
     suggest();
     // console.log(attr)
+    storeState!==state && setrmSug(true)
     console.log(state);
+    console.log(storeState);
   }, [state]);
 
   function handleSubmit(e) {
@@ -67,7 +70,10 @@ export default function App() {
   }
 
   function suggClick(title) {
+    // storeState = title;  
+    setstoreState(title)  
     setState(title);
+    setrmSug(false)
   }
 
   return (
@@ -81,6 +87,8 @@ export default function App() {
         suggClick={suggClick}
         val={val}
         setVal={setVal}
+        rmsug={rmsug}
+        setrmSug={setrmSug}
       />
       <Cars
         filterArr={filterArr}
