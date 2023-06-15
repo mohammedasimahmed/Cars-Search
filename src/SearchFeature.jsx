@@ -1,7 +1,7 @@
 import Suggestions from "./Suggestions";
 import VoiceSearch from "./VoiceSearch";
 
-export default function SearchFeature({ handleSubmit, state, setState ,suggest ,filterSugg , suggClick ,val ,setVal }) {
+export default function SearchFeature({ handleSubmit, state, setState  ,filterSugg , suggClick ,val ,setVal , rmsug }) {
     return (
         <>
             <h1 className="title">Cars</h1>
@@ -17,9 +17,9 @@ export default function SearchFeature({ handleSubmit, state, setState ,suggest ,
                     autoComplete="off"
                     />
                     <Suggestions 
-                    suggest={suggest} 
                     filterSugg={filterSugg} 
                     suggClick={suggClick} 
+                    rmsug={rmsug}
                     />
                                 <VoiceSearch 
                 setState={setState} 
