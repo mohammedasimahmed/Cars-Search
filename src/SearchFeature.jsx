@@ -1,10 +1,11 @@
 import Suggestions from "./Suggestions";
+import VoiceSearch from "./VoiceSearch";
 
-export default function SearchFeature({ handleSubmit, state, setState ,suggest ,filterSugg , suggClick }) {
+export default function SearchFeature({ handleSubmit, state, setState ,suggest ,filterSugg , suggClick ,val ,setVal }) {
     return (
         <>
             <h1 className="title">Cars</h1>
-            <label htmlFor="search" className="labelCarSearch">Car Search , Search by Name or by Type</label>
+            <label htmlFor="search" className="labelCarSearch">Vehicle Search , Search by Name or by Type</label>
             <form action="" onSubmit={handleSubmit} className="searchForm">
                 <div className="searchContainer">
                     <input 
@@ -20,9 +21,16 @@ export default function SearchFeature({ handleSubmit, state, setState ,suggest ,
                     filterSugg={filterSugg} 
                     suggClick={suggClick} 
                     />
+                                <VoiceSearch 
+                setState={setState} 
+                val={val}
+                setVal={setVal}
+            />
                     <button className="searchBtn" >SEARCH</button>
                 </div>
+                {/* <div>hi</div> */}
             </form>
+
         </>
     )
 }
