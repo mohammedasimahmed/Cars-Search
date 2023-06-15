@@ -82,13 +82,11 @@ export default function App() {
         handleSubmit={handleSubmit}
         state={state}
         setState={setState}
-        suggest={suggest}
         filterSugg={filterSugg}
         suggClick={suggClick}
         val={val}
         setVal={setVal}
         rmsug={rmsug}
-        setrmSug={setrmSug}
       />
       <Cars
         filterArr={filterArr}
