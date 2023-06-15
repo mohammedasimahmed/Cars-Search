@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Cars from "./Cars";
-import SearchFeature from "./searchFeature";
-import { carsArr } from "./carsdata";
+import SearchFeature from "./SearchFeature";
+import { carsArr } from "./Carsdata";
 
 export default function App() {
   const [state, setState] = useState("");
   const [filterArr, setFilterArr] = useState([]);
   const [filterSugg, setFilterSugg] = useState([]);
+  const [val, setVal] = useState(false);
   
-  let attr = ""
+  // let attr = ""
 
   useEffect(() => {
     func();
     filter();
     suggest();
-    console.log(attr)
+    // console.log(attr)
     console.log(state);
   }, [state]);
 
@@ -27,16 +28,16 @@ export default function App() {
       setFilterArr([]);
       return;
     }
-    else if (
-      "luxury car".startsWith(state.toLowerCase().trim()) ||
-      "sports car".startsWith(state.toLowerCase().trim()) ||
-      "passenger car".startsWith(state.toLowerCase().trim())
-    ) {
-      attr="type"
-    }
-    else {
-      attr="name"
-    }
+    // else if (
+    //   "luxury car".startsWith(state.toLowerCase().trim()) ||
+    //   "sports car".startsWith(state.toLowerCase().trim()) ||
+    //   "passenger car".startsWith(state.toLowerCase().trim())
+    // ) {
+    //   attr="type"
+    // }
+    // else {
+    //   attr="title"
+    // }
   }
   function filter() {
     if (state === "" || state.trim() === "") {
@@ -45,7 +46,8 @@ export default function App() {
     }
     setFilterArr(
       carsArr.filter((item) =>
-        item[attr].toLowerCase().startsWith(state.toLowerCase().trim())
+        item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim())
+        // item["title"].toLowerCase().includes(state.toLowerCase().trim())
       )
     );
   }
@@ -58,13 +60,14 @@ export default function App() {
 
     setFilterSugg(
       carsArr.filter((item) =>
-        item[attr].toLowerCase().startsWith(state.toLowerCase().trim())
+      item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim())
+      // item["title"].toLowerCase().includes(state.toLowerCase().trim())
       )
     );
   }
 
-  function suggClick(name) {
-    setState(name);
+  function suggClick(title) {
+    setState(title);
   }
 
   return (
@@ -76,6 +79,8 @@ export default function App() {
         suggest={suggest}
         filterSugg={filterSugg}
         suggClick={suggClick}
+        val={val}
+        setVal={setVal}
       />
       <Cars
         filterArr={filterArr}
@@ -84,6 +89,9 @@ export default function App() {
         setFilterArr={setFilterArr}
         setFilterSugg={setFilterSugg}
       />
+      {/* <VoiceSearch setState={setState}/> */}
     </>
   );
 }
+
+
