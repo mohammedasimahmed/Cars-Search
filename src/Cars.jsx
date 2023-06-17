@@ -8,8 +8,8 @@ export default function Cars({ filterArr, state, carsArr }) {
                         const id = Math.floor(Math.random() * 100000000 + 1);
                         return (
                             <div className="car" key={id}>
-                                <img src={item.url} alt="" className="carImg" />
-                                <h3>{item.name}</h3>
+                                <img src={item.image} alt="" className="carImg" />
+                                <h3>{item.title}</h3>
                             </div>
                         )
                     })
@@ -20,8 +20,8 @@ export default function Cars({ filterArr, state, carsArr }) {
                     const id = Math.floor(Math.random() * 100000000 + 1);
                     return (
                         <div className="car" key={id}>
-                            <img src={item.url} alt="" className="carImg" />
-                            <h3>{item.name}</h3>
+                            <img src={item.image} alt="" className="carImg" />
+                            <h3>{item.title}</h3>
                         </div>
                     )
                 })
