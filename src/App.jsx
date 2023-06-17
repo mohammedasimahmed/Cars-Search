@@ -49,7 +49,9 @@ export default function App() {
     }
     setFilterArr(
       carsArr.filter((item) =>
-        item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim())
+      item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim())
+        // (item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim()))
+        // ||(state.length>=3 && item["title"].toLowerCase().includes(state.toLowerCase().trim()))
         // item["title"].toLowerCase().includes(state.toLowerCase().trim())
       )
     );
@@ -64,6 +66,8 @@ export default function App() {
     setFilterSugg(
       carsArr.filter((item) =>
       item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim())
+      // (item["title"].toLowerCase().startsWith(state.toLowerCase().trim().slice(0,1))&&item["title"].toLowerCase().includes(state.toLowerCase().trim()))
+      // ||(state.length>=3 && item["title"].toLowerCase().includes(state.toLowerCase().trim()))
       // item["title"].toLowerCase().includes(state.toLowerCase().trim())
       )
     );
